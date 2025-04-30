@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input @keyup.up.prevent="txt">
+    <a href="http://www.naver.com" @click.prevent="aClick">naver</a>
+    <div @click="divClick">
+      <button @click.ctrl.stop="btnClick">click</button>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data: function () { return {} },
+      methods: {
+        txt() { alert('pressed enter key')},
+        aClick() { alert('a clicked') },
+        divClick() { alert('div clicked') },
+        btnClick() { alert('btn clicked') },
+      }
+    }).mount("#app")
+  </script>
+</body>
+
+</html>

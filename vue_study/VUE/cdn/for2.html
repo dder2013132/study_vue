@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for2.html 배열</title>
+</head>
+<body>
+  <div id="app">
+  <table>
+    <tr v-for="(a,idx) in obj">
+      <td>{{idx+1}}</td>
+      <td>{{a.firstName}}</td>
+      <td>{{a.dept}}</td>
+      <td>{{a.sal}}</td>
+    </tr>
+  </table>
+</div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data(){
+        return{
+          obj : [{firstName:"홍길동", dept:"개발",sal:2000},
+                 {firstName:"길동이", dept:"pm",sal:5000},
+                 {firstName:"홍길이", dept:"프론트",sal:22000}]
+        }
+      }
+    }).mount("#app")
+  </script>
+</body>
+</html>

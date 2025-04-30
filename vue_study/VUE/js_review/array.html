@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="fruit">
+    <p data-price="300">사과</p>
+    <p data-price="500">바나나</p>
+    <p data-price="100">오렌지</p>
+  </div>
+  <script>
+    const fruits = document.querySelectorAll(".fruit p");
+    let arr = Array.from(fruits).map(ele => ({ name:ele.innerHTML, price:ele.dataset.price}))
+    console.log(arr);
+    // fruits.forEach((element,index)=>{
+    //   console.log(element.innerHTML);
+    // });
+    // [사과, 바나나, 오렌지] 
+    arr.sort( (a,b) => {
+      if( a.price > b.price) return 1;
+      else if( a.price == b.price) return 0;
+      else return -1;
+    }
+  )
+  console.log(arr)
+
+  //find (1) vs filter (n)
+  let findR = arr.find(ele => ele.price > 200)
+  console.log(findR)
+
+  let filR = arr.filter(ele => ele.price >200)
+  console.log(filR)
+  </script>
+</body>
+
+</html>

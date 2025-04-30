@@ -1,0 +1,35 @@
+<script>
+export default {
+      data: function () {
+        return {
+          dt : '20250423',
+          movies: []
+        }
+      },
+      methods: {
+        getMovie(dt) {
+          fetch('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=12664b24453335d2c3eca0fdc4b3b013&targetDt='+this.dt)
+            .then(response => response.json())
+            .then(response => this.movies = response.boxOfficeResult.dailyBoxOfficeList)
+        }
+      },
+      mounted() {
+        this.getMovie();
+      }
+    }
+  
+</script>
+<template>
+  <input v-model="dt"><button @click="getMovie()">조회하기</button><br>
+    <table>
+      <tr v-for="(mv) in movies">
+        <td>{{mv.rnum}}</td>
+        <td>{{mv.movieNm}}</td>
+        <td>{{mv.openDt}}</td>
+        <td>{{mv.audiAcc}}</td>
+      </tr>
+    </table>
+</template>
+<style>
+  
+</style>
