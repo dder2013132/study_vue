@@ -1,5 +1,17 @@
 const express = require('express')
 
+const multer = require('multer')
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'c:/temp/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+const upload = multer({ storage: storage })
+
 const app = express()
 const port = 80
 
@@ -14,6 +26,22 @@ let boards = [
 //로그 미들웨어 morgan
 const morgan = require('morgan')
 app.use(morgan(':date[iso] :method :url :remote-addr'))
+
+//라우트 설정
+app.get('/download', (req, res, next) => {
+  const filepath = 'C:/temp/uploads/temp-session-jsp.txt';
+  const downname = 'temp-session-jsp.txt';
+  res.setHeader('Content-Disposition', `attachment; filename=${downname}`); // 이게 핵심 
+  res.sendFile(filepath);
+});  
+
+app.post('/profile', upload.single('avatar'), function (req,res){
+  // req.file 은 `avatar`라는 필드의 파일 정보입니다.
+  console.log(req.file.size)
+  console.log(req.file.filename)
+  console.log(req.file.originalname)
+  res.send("ok")
+})
 
 app.get('/', (req, res) => {
   res.send("hello");
