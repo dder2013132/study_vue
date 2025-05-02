@@ -48,13 +48,15 @@
     </div>
     <!-- 댓글 -->
     <div class="row">
-      
+      <CommentComp :bid="bookData.id" />
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import CommentComp from "@/components/CommentComp.vue";
   export default{
+    components:{ CommentComp },
     data() {
       return{
         searchNo:"",
@@ -63,8 +65,9 @@ import axios from "axios";
     },
     methods:{
       async getBoardInfo(){
-        this.bookData = await axios.get(`http://localhost:3000/board/${this.searchNo}`)
-        .then(response => this.bookData = response.data)
+        let board = await axios.get(`http://localhost:3000/board/${this.searchNo}`)
+        this.bookData = board.data[0];
+        // .then(response => this.bookData = response.data)
       },
       getDateFormat(dateString){
         if(!dateString){

@@ -31,7 +31,7 @@ export default{
   },
   methods:{
     async getBoardList(){
-      this.boardList = await axios.get('http://localhost:3000/board')
+      this.boardList = await axios.get('')
       .then(response => this.boardList = response.data)
     },
     goToDetail(id){

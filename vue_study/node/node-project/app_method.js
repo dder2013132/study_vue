@@ -102,6 +102,7 @@ app.route("/emp")
    .delete((req,res)=>{ res.send(req.body.id) } )
 
 app.use("/product",require("./routes/product"));
+app.use("/customer",require("./routers/customer"));
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)

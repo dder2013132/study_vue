@@ -42,7 +42,7 @@ export default {
       // 수정 모드
       try {
         const { data } = await axios.get(`/${id}`);
-        this.board = { ...data, isNew: false };
+        this.board = { ...data[0], isNew: false };
       } catch (e) {
         alert('게시글을 불러오는데 실패했습니다.');
         this.$router.push("/boardL");
@@ -78,6 +78,11 @@ export default {
       }).replace(/\. /g, '-').replace('.', '');
     },
     
+    formatDateForDB(date) {
+      const d = new Date(date);
+      return d.toISOString().slice(0, 19).replace('T', ' ');
+    },
+
     async saveBoard() {
       if (!this.board.title || !this.board.writer) {
         return alert('제목과 작성자는 필수입니다.');
@@ -94,8 +99,8 @@ export default {
           await axios.post("/", {
             ...postData,
             id: String(lastId),
-            created_date: new Date().toISOString(),
-            updated_date: new Date().toISOString()
+            created_date: this.formatDateForDB(new Date()),
+            updated_date: this.formatDateForDB(new Date())
           });
           
           alert('등록 완료!');
@@ -103,7 +108,8 @@ export default {
           // 글 수정
           await axios.put(`/${postData.id}`, {
             ...postData,
-            updated_date: new Date().toISOString()
+            created_date: this.formatDateForDB(postData.created_date),
+            updated_date: this.formatDateForDB(new Date())
           });
           
           alert('수정 완료!');
