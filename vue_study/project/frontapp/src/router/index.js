@@ -25,6 +25,15 @@ const router = createRouter({
       name: 'boardI',
       component: () => import('../views/BoardInfo.vue'),
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+    },{
+      path: '/boardT',
+      name: 'boardT',
+      component: () => import('../views/BoardTable.vue'),
+    },
   ],
 })
 

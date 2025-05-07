@@ -10,7 +10,7 @@ export default {
   },
   methods:{
     getBoardInfo(){
-      let comment = axios.get(`http://localhost:3000/comment/${bid}`);
+      let comment = axios.get(`/api/comment/${bid}`);
       this.comments = comment.data[0];
     }
   },

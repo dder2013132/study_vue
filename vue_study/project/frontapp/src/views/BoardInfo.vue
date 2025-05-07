@@ -65,7 +65,7 @@ import CommentComp from "@/components/CommentComp.vue";
     },
     methods:{
       async getBoardInfo(){
-        let board = await axios.get(`http://localhost:3000/board/${this.searchNo}`)
+        let board = await axios.get(`/api/board/${this.searchNo}`)
         this.bookData = board.data[0];
         // .then(response => this.bookData = response.data)
       },

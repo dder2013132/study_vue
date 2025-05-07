@@ -15,49 +15,33 @@
           <td>{{ board.id }}</td>
           <td>{{ board.title }}</td>
           <td>{{ board.writer }}</td>
-          <td>{{ getDateFormat(board.created_date) }}</td>
+          <td>{{ board.createDate }}</td>
           <td>{{ board.comment }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+  {{  route.fullPath }}
 </template>
-<script>
-import axios from "axios";
-axios.defaults.baseURL="http://localhost:3000/board";
-export default{
-  data(){
-    return{ boardList:[] };
-  },
-  methods:{
-    async getBoardList(){
-      this.boardList = await axios.get('')
-      .then(response => this.boardList = response.data)
-    },
-    goToDetail(id){
-      this.$router.push({path:"/boardI", query: {id: id}});
-    },
-    getDateFormat(dateString){
-        if(!dateString){
-          return '';
-        }
-        const date = new Date(dateString);
-        if(isNaN(date.getTime())){
-          'Error : 유효하지 않은 날짜';
-        }
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
+<script setup>
+import axios from 'axios';
+import {ref} from 'vue';
+import {useRouter, useRoute} from 'vue-router';
 
-        return `${year}-${day} ${hours}:${minutes}`;
-      },
-  },
-  mounted(){
-    this.getBoardList();
-  }
+const router = useRouter();
+const route = useRoute();
+const boardList = ref([])
+
+const getBoardList = async ()=>{
+  let result = await axios.get(`/api/board`);
+  boardList.value = result.data;
+};
+
+getBoardList();
+function goToDetail(){
+  router.push()
 }
+
 </script>
 <style scoped>
 table * {
