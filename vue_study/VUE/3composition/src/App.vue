@@ -1,3 +1,65 @@
+<!-- <script>
+import GoodsView from './components/goods.vue';
+import MemberForm from './views/MemberForm.vue';
+import MovieForm from './views/MovieForm.vue';
+import TodoForm from './views/TodoForm.vue';
+import EmpForm from './views/EmpForm.vue';
+import { RouterLink, RouterView} from 'vue-router'
+
+export default{
+    components:{GoodsView, MemberForm, MovieForm,TodoForm,EmpForm},
+    data(){
+      return{
+        fruits:["사과","바나나","오렌지"],
+        message:"greeting"
+      }
+    },
+    method:{}
+  }
+</script>
+
+<template>
+  <div class="container">
+    <h1>Hello App!</h1>
+    <p>
+      <strong>Current route path:</strong> {{ $route.fullPath }}
+    </p>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <RouterLink to="/" class="nav-link active" aria-current="page">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/memberForm" class="nav-link active" aria-current="page">회원가입</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/movieForm" class="nav-link active" aria-current="page">영화검색</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/todoForm" class="nav-link active" aria-current="page">Todo</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/paramView/kim" class="nav-link active" aria-current="page">파라미터</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/paramView/park" class="nav-link active" aria-current="page">파라미터</RouterLink>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>  
+    <main>
+      <RouterView />
+    </main>
+  </div>
+</template> -->
+
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
@@ -5,7 +67,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -13,6 +75,17 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/nested">컴포넌트 안에 다른 컴포넌트사용</RouterLink>
+        <RouterLink to="/parent">parent child</RouterLink>
+        <RouterLink to="/parent4">parent child4</RouterLink>
+        <RouterLink to="/emp">emp</RouterLink><br>
+        <RouterLink to="/empview">empview</RouterLink>
+        <RouterLink to="/slot">slot</RouterLink>
+        <RouterLink to="/provide">provide</RouterLink>
+        <RouterLink to="/nested">nested</RouterLink>
+        <RouterLink to="/cpv">cpv</RouterLink>
+        <RouterLink to="/wtc">wtc</RouterLink>
+
       </nav>
     </div>
   </header>

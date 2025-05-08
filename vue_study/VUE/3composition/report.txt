@@ -1,0 +1,34 @@
+https://cyannara.github.io/
+과제
+1. EmpList.vue 파일 추가
+   import Axios from 'axios'
+   axios.get("./..empdata.json")
+   .then()
+
+2. EmpForm.vue
+
+3. EmpView.vue 추가
+   EmpList.vue , EmpForm.vue 를 컴포넌트 추가
+   - import 하고
+   - components 속성 지정
+     (
+    	components : ( EmpList, EmpForm )
+     )
+   - <template> 안에
+      <EmpList/> <EmpForm/>
+
+4. router/index.js
+   Empview.vue 라우터 수정
+
+          Empview.vue
+	      |
+EmpList.vue         EmpForm.vue
+table>tr>td
+
+
+상단메뉴에 사원관리 추가
+왼쪽 emplist 오른쪽 empform 
+컴포넌트로 두개 가져오기
+->empview.vue
+router링크 걸기
+emplist는 axios가져와서 list보여주게

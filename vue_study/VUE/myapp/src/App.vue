@@ -82,6 +82,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/empview">empview</RouterLink>
         <RouterLink to="/slot">slot</RouterLink>
         <RouterLink to="/provide">provide</RouterLink>
+        <RouterLink to="/nested">nested</RouterLink>
       </nav>
     </div>
   </header>
