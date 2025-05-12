@@ -16,19 +16,19 @@ const router = createRouter({
       component: () => import('../views/BookList.vue'),
     },
     {
-      path: '/bookform/:id',
-      name: 'bookform_edit',
+      path: '/bookdetail/:id',
+      name: 'bookdetail',
+      component: () => import('../views/BookDetail.vue'),
+    },
+    {
+      path: '/bookadd',
+      name: 'bookadd',
       component: () => import('../views/BookForm.vue'),
     },
     {
-      path: '/bookform',
-      name: 'bookform_new',
+      path: '/bookupdate/:id',
+      name: 'bookupdate',
       component: () => import('../views/BookForm.vue'),
-    },
-    {
-      path: '/bookinfo/:id',
-      name: 'bookinfo',
-      component: () => import('../views/BookInfo.vue'),
     },
   ],
 })
