@@ -86,6 +86,16 @@ const router = createRouter({
       name: 'wtc',
       component: () => import('../views/WatchView.vue'),
     },
+    {
+      path: '/vvv',
+      name: 'vvv',
+      component: () => import('../views/VuetifyView.vue'),
+    },
+    {
+      path: '/pin',
+      name: 'pin',
+      component: () => import('../views/StoreView.vue'),
+    },
   ],
 })
 

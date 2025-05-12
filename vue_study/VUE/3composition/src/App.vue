@@ -69,8 +69,8 @@ import HelloWorld from './components/HelloWorld.vue'
   <header>
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- <div class="wrapper"> -->
+      <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -85,9 +85,11 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/nested">nested</RouterLink>
         <RouterLink to="/cpv">cpv</RouterLink>
         <RouterLink to="/wtc">wtc</RouterLink>
+        <RouterLink to="/vvv">vvv</RouterLink>
+        <RouterLink to="/pin">pin</RouterLink>
 
       </nav>
-    </div>
+    <!-- </div> -->
   </header>
 
   <RouterView />
@@ -131,7 +133,7 @@ nav a:first-of-type {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
+    /* display:inline-block; */
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }

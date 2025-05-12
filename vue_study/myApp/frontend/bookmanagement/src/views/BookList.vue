@@ -15,6 +15,13 @@ const getBookList = async()=>{
 }
 
 getBookList();
+function gotoDetail(bookID) {
+  router.push(`/bookinfo/${bookID}`);
+}
+
+function addBook(){
+  router.push('/bookform');
+}
 </script>
 <template>
   <div class="container">
@@ -37,11 +44,12 @@ getBookList();
           <td>{{ book.publisher }}</td>
           <td>{{ book.isbn }}</td>
           <td>{{ book.created_at }}</td>
+          <button @click="gotoDetail(book.id)">상세보기</button>
         </tr>
       </tbody>
     </table>
   </div>
-  {{  route.fullPath }}
+  <button @click="addBook">책 추가</button>
 </template>
 <style scoped>
 table * {

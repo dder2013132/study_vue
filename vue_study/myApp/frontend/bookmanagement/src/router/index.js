@@ -15,6 +15,21 @@ const router = createRouter({
       name: 'booklist',
       component: () => import('../views/BookList.vue'),
     },
+    {
+      path: '/bookform/:id',
+      name: 'bookform_edit',
+      component: () => import('../views/BookForm.vue'),
+    },
+    {
+      path: '/bookform',
+      name: 'bookform_new',
+      component: () => import('../views/BookForm.vue'),
+    },
+    {
+      path: '/bookinfo/:id',
+      name: 'bookinfo',
+      component: () => import('../views/BookInfo.vue'),
+    },
   ],
 })
 

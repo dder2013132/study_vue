@@ -13,7 +13,7 @@ router.post("", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => { 
-  const result = await query("books","selectByTitle",req.params.id);
+  const result = await query("books","selectById",req.params.id);
   res.send(result); 
 });
 
